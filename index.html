@@ -78,13 +78,13 @@ h1{margin:0 0 16px;font-size:24px;font-weight:700;color:var(--ink)}
       </div>
     </div>
     <div class="sec">
-      <button class="acc" aria-expanded="false" aria-controls="b-sum">
+      <button class="acc" data-static="1" aria-expanded="true" aria-controls="b-sum" style="cursor:default">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M9 12h6M9 16h6"/></svg>
         Samenvatting
-        <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        
       </button>
-      <div class="body" id="b-sum" hidden>
-        <p class="note">Voeg hier een korte introductie over jezelf of je werk toe.</p>
+      <div class="body" id="b-sum">
+        <p class="note">Lijkt het je leuk samen te werken of heb je vragen/ opmerkingen? App of mail me dan gerust. Ik kom graag met je in contact!</p>
       </div>
     </div>
   </div>
@@ -2405,7 +2405,7 @@ document.getElementById("add").onclick=function(){
   a.href=u;a.download=C.first+"-"+C.last+".vcf";document.body.appendChild(a);a.click();a.remove();
   setTimeout(function(){URL.revokeObjectURL(u)},4000);
 };
-document.querySelectorAll(".acc").forEach(function(b){b.onclick=function(){var o=b.getAttribute("aria-expanded")==="true";b.setAttribute("aria-expanded",!o);document.getElementById(b.getAttribute("aria-controls")).hidden=o;}});
+document.querySelectorAll(".acc").forEach(function(b){b.onclick=function(){if(b.dataset.static)return;var o=b.getAttribute("aria-expanded")==="true";b.setAttribute("aria-expanded",!o);document.getElementById(b.getAttribute("aria-controls")).hidden=o;}});
 </script>
 </body>
 </html>
